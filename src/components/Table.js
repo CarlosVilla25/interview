@@ -49,6 +49,10 @@ const Table = ({ data, pagination }) => {
                 lastreporttime,
               } = element;
               const rain = probabilityofprecip > 60 || relativehumidity > 50;
+              const YYYY = lastreporttime.slice(0,4);
+              const MM = lastreporttime.slice(4,6);
+              const DD = lastreporttime.slice(6,8);
+              const formatDate = `${YYYY}/${MM}/${DD}`
 
               return (
                 <tr key={_id}>
@@ -58,7 +62,7 @@ const Table = ({ data, pagination }) => {
                   <td>{state}</td>
                   <td>{probabilityofprecip}</td>
                   <td>{relativehumidity}</td>
-                  <td>{lastreporttime}</td>
+                  <td>{formatDate}</td>
                   <td>{rain ? 'LLUEVE' : 'NO LLUEVE'}</td>
                 </tr>
               );
